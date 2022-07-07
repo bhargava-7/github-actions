@@ -13,7 +13,7 @@ jobs:
         uses: benc-uk/workflow-dispatch@v1
         with:
           workflow: My Workflow
-          token: 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   
+          token: "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" 
           
 
   AWS-Config:
@@ -33,5 +33,5 @@ jobs:
     steps:
       - uses: jasongitmail/fast-webhook@v1
         with:
-          url: https://secretsmanager.ap-southeast-1.amazonaws.com
-          json: '{"Name": "SampleSecret", "SecretString": "{\"username\": \"Girish\", \"password\": "Girish123\"}","ClientRequestToken":""}'
+          url: "https://secretsmanager.ap-southeast-1.amazonaws.com"
+          json: '{"Name": "SampleSecret", "SecretString": "{\"username\": \"Girish\", \"password\": \"Girish123\"}","ClientRequestToken":NULL}'
