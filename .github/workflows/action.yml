@@ -34,4 +34,4 @@ jobs:
       - uses: jasongitmail/fast-webhook@v1
         with:
           url: "https://secretsmanager.ap-southeast-1.amazonaws.com"
-          json: '{"Name": "SampleSecret", "SecretString": "{\"username\": \"Girish\", \"password\": \"Girish123\"}","ClientRequestToken":NULL}'
+          json: '{"Name": "SampleSecret", "SecretString": "{\"username\": \"Girish\", \"password\": \"Girish123\"}","ClientRequestToken":null}'
