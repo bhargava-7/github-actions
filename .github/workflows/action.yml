@@ -6,7 +6,7 @@ on:
 jobs:
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: macOS-10.14
     steps:
     
       - name: Workflow_Dispatch
@@ -28,12 +28,10 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  
           
- CreateSecret:
+  CreateSecret:
     runs-on: macOS-10.14
     steps:
-      -uses: jasongitmail/fast-webhook@v1
-       with:
+      - uses: jasongitmail/fast-webhook@v1
+        with:
           url: https://secretsmanager.ap-southeast-1.amazonaws.com
-          json: '{"Name": "SampleSecret"
-                  "SecretString": "{\"username\": \"Girish\", \"password\": "Girish123\"},"ClientRequestToken":""
-                  }'
+          json: '{"Name": "SampleSecret", "SecretString": "{\"username\": \"Girish\", \"password\": "Girish123\"}","ClientRequestToken":""}'
