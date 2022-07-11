@@ -3,7 +3,7 @@ name: Mixed inputs
 on:
   workflow_dispatch:
     inputs:
-      name:
+      Name:
         description: Secret Name
         required: true
       Key:
@@ -11,7 +11,18 @@ on:
       Value:
         required: true
 jobs:
-  release:
+  
+    build:
+    runs-on: macOS-10.14
+    steps:
+    
+      - name: Workflow_Dispatch
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: My Workflow
+          token: "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" 
+  
+  Task:
     name: Create Secret
     runs-on: [ ubuntu-latest]
     steps:
