@@ -9,5 +9,4 @@ on:
       Key:
         required: true
       Value:
-        type: environment
-        equired: true
+        required: true
