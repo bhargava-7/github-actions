@@ -11,18 +11,8 @@ on:
       Value:
         required: true
 jobs:
-  
-  Task1:
-    runs-on: [ ubuntu-latest]
-    steps:
 
-      - name: Workflow_Dispatch
-        uses: benc-uk/workflow-dispatch@v1
-        with:
-          workflow: My Workflow
-          token: "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" 
-  
-  Task2:
+  Task1:
     runs-on: [ ubuntu-latest]
     steps:
       - uses: actions/checkout@v2
