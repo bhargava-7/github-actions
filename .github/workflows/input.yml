@@ -12,8 +12,8 @@ on:
         required: true
 jobs:
   
-  Build:
-    runs-on: macOS-10.14
+  Task1:
+    runs-on: [ ubuntu-latest]
     steps:
 
       - name: Workflow_Dispatch
@@ -22,7 +22,7 @@ jobs:
           workflow: My Workflow
           token: "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" 
   
-  Task:
+  Task2:
     runs-on: [ ubuntu-latest]
     steps:
       - uses: actions/checkout@v2
