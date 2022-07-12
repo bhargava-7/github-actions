@@ -16,7 +16,7 @@ jobs:
     runs-on: [ ubuntu-latest]
     permissions:
         id-token: write
-        contents: read
+        contents: write
     steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@20ce4e5ba1de2e753d034b5415075a8767d64d4d
