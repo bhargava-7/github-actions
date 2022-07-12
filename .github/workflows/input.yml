@@ -18,7 +18,7 @@ jobs:
         id-token: write
         contents: write
     steps:
-      - name: Configure AWS Credentials
+      - name: "Configure AWS Credentials"
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -30,4 +30,8 @@ jobs:
       - name: AWS SecretsManager
         run: |
           aws configure set aws_session_token "${{ secrets.AWS_SESSION_TOKEN}}"
-          aws secretsmanager create-secret --name ${{ github.event.inputs.Name}} --secret-string "{"Key":"${{ github.event.inputs.Key}}", "Value":"${{ github.event.inputs.Value}}"}"        
+          aws secretsmanager create-secret --name ${{ github.event.inputs.Name}} --secret-string "{"Key":"${{ github.event.inputs.Key}}", "Value":"${{ github.event.inputs.Value}}"}" 
+          
+          
+          
+          
