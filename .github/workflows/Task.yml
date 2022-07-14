@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       Task:
-        type: Task
+        type: choice
         description: Choose a Task
         options:
         - GET
