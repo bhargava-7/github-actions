@@ -11,7 +11,7 @@ on:
         - UPDATE
         - CREATE
         
-      Name:
+      Secret Name:
       
       Description:
       
@@ -27,7 +27,7 @@ on:
       
 jobs:
 
-  Task1:
+  Task:
     runs-on: [ ubuntu-latest]
     permissions:
         id-token: write
@@ -42,11 +42,18 @@ jobs:
           aws-region: ap-southeast-1
           role-skip-session-tagging: true
 
-      - name: AWS SecretsManager
+      - name: CREATE
+        if: ${{ github.event.inputs.Task == 'CREATE' }}
         run: |
           aws configure set aws_session_token "${{ secrets.AWS_SESSION_TOKEN}}"
           aws secretsmanager create-secret --name ${{ github.event.inputs.Name}} --secret-string "{"Key1":"${{ github.event.inputs.Key1}}", "Value1":"${{ github.event.inputs.Value1}}", "Key2":"${{ github.event.inputs.Key2}}", "Value2":"${{ github.event.inputs.Value2}}", "Key3":"${{ github.event.inputs.Key3}}", "Value3":"${{ github.event.inputs.Value3}}"}" 
-          
-          
+      
+      - name: GET    
+        if: ${{ github.event.inputs.Task == 'GET' }}
+        run: aws secretsmanager get-secret-value --secret-id MyTestSecret
+        
+      - name: UPDATE   
+        if: ${{ github.event.inputs.Task == 'UPDATE' }}
+        run: aws secretsmanager get-secret-value --secret-id MyTestSecret 
           
           
