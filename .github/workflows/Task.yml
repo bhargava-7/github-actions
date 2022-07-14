@@ -53,9 +53,8 @@ jobs:
       - name: UPDATE   
         id: update
         if: ${{ github.event.inputs.Task == 'UPDATE' }}
-        run: |
-          if: aws secretsmanager get-secret-value --secret-id ${{ github.event.inputs.Secret_Name}}
-          aws secretsmanager update-secret --secret-id ${{github.event.inputs.Secret_Name}} --secret-string '{"${{ github.event.inputs.Key1}}":"${{ github.event.inputs.Value1}}", "${{ github.event.inputs.Key2}}":"${{ github.event.inputs.Value2}}", "${{ github.event.inputs.Key3}}":"${{ github.event.inputs.Value3}}"}' 
+        run:
+          aws secretsmanager get-secret-value --secret-id ${{ github.event.inputs.Secret_Name}}
       
       - name: UPDATE_NOW   
         if: steps.update.outcome=='success'
