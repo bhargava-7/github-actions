@@ -10,7 +10,6 @@ on:
         - GET
         - UPDATE
         - CREATE
-          required:true
         
       Secret Name:
       
