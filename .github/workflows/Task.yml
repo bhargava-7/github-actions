@@ -13,8 +13,6 @@ on:
         
       Secret Name:
       
-      Description:
-      
       Key1:
       Value1:
       
@@ -23,7 +21,8 @@ on:
       
       Key3:
       Value3:
- 
+       
+      Description:
       
 jobs:
 
