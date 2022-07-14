@@ -11,7 +11,7 @@ on:
         - UPDATE
         - CREATE
         
-      Secret Name:
+      Secret_Name:
       
       Key1:
       Value1:
@@ -45,14 +45,14 @@ jobs:
         if: ${{ github.event.inputs.Task == 'CREATE' }}
         run: |
           aws configure set aws_session_token "${{ secrets.AWS_SESSION_TOKEN}}"
-          aws secretsmanager create-secret --name ${{ github.event.inputs.Secret Name}} --secret-string "{"Key1":"${{ github.event.inputs.Key1}}", "Value1":"${{ github.event.inputs.Value1}}", "Key2":"${{ github.event.inputs.Key2}}", "Value2":"${{ github.event.inputs.Value2}}", "Key3":"${{ github.event.inputs.Key3}}", "Value3":"${{ github.event.inputs.Value3}}"}" 
+          aws secretsmanager create-secret --name ${{ github.event.inputs.Secret_Name}} --secret-string "{"Key1":"${{ github.event.inputs.Key1}}", "Value1":"${{ github.event.inputs.Value1}}", "Key2":"${{ github.event.inputs.Key2}}", "Value2":"${{ github.event.inputs.Value2}}", "Key3":"${{ github.event.inputs.Key3}}", "Value3":"${{ github.event.inputs.Value3}}"}" 
       
       - name: GET    
         if: ${{ github.event.inputs.Task == 'GET' }}
-        run: aws secretsmanager get-secret-value --secret-id ${{ github.event.inputs.Secret Name}}
+        run: aws secretsmanager get-secret-value --secret-id ${{ github.event.inputs.Secret_Name}}
         
       - name: UPDATE   
         if: ${{ github.event.inputs.Task == 'UPDATE' }}
-        run: aws secretsmanager update-secret --secret-id ${{github.event.inputs.Secret Name}} --description ${{github.event.inputs.Description}} 
+        run: aws secretsmanager update-secret --secret-id ${{github.event.inputs.Secret_Name}} --description ${{github.event.inputs.Description}} 
           
           
