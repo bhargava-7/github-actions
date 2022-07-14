@@ -1,4 +1,4 @@
-name: Mixed inputs
+name: Task
 
 on:
   workflow_dispatch:
@@ -21,6 +21,8 @@ on:
       Key2:
       Value2:
       
+      Key3:
+      Value3:
  
       
 jobs:
